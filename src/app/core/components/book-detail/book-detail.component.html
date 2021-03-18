@@ -1,0 +1,98 @@
+<form [formGroup]="form"  (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Название книги</label>
+    <span class="edit-icon" (click)="editForm()">
+      <img src="assets/images/edit-icon.svg" alt="">
+  </span>
+    <input
+      [class.is-invalid]="form.get('name').invalid && form.get('name').touched"
+      [class.is-valid]="form.get('name').valid"
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="inputEmail4">
+    <div *ngIf="form.get('name').invalid && form.get('name').touched" class="invalid-feedback">
+    Поле обязательно для заполнения
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Автор</label>
+    <input
+      [class.is-invalid]="form.get('author').invalid && form.get('author').touched"
+      [class.is-valid]="form.get('author').valid"
+      formControlName="author"
+      type="text"
+      class="form-control"
+      id="inputPassword4">
+    <div *ngIf="form.get('author').invalid && form.get('author').touched" class="invalid-feedback">
+      Поле обязательно для заполнения
+    </div>
+  </div>
+  <div class="col-3">
+    <label for="inputAddress" class="form-label">Издатель</label>
+    <input
+      [class.is-invalid]="form.get('publishing').invalid && form.get('publishing').touched"
+      [class.is-valid]="form.get('publishing').valid"
+      formControlName="publishing"
+      type="text"
+      class="form-control"
+      id="inputAddress">
+    <div *ngIf="form.get('publishing').invalid && form.get('publishing').touched" class="invalid-feedback">
+      Поле обязательно для заполнения
+    </div>
+  </div>
+  <div class="col-3">
+    <label for="inputAddress2" class="form-label">Год выпуска</label>
+    <input
+      [class.is-invalid]="form.get('year').invalid && form.get('year').touched"
+      [class.is-valid]="form.get('year').valid"
+      formControlName="year"
+      type="text"
+      class="form-control"
+      id="inputAddress2">
+    <div *ngIf="form.get('year').invalid && form.get('year').touched" class="invalid-feedback">
+      Поле обязательно для заполнения
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="inputCity" class="form-label">ISBN</label>
+    <input
+      [class.is-invalid]="form.get('isbn').invalid && form.get('isbn').touched"
+      [class.is-valid]="form.get('isbn').valid"
+      formControlName="isbn"
+      type="text"
+      class="form-control"
+      id="inputCity">
+    <div *ngIf="form.get('isbn').invalid && form.get('isbn').touched" class="invalid-feedback">
+      Поле обязательно для заполнения
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="inputZip" class="form-label">Описание</label>
+    <input
+      [class.is-invalid]="form.get('description').invalid && form.get('description').touched"
+      [class.is-valid]="form.get('description').valid"
+      formControlName="description"
+      type="text"
+      class="form-control"
+      id="inputZip">  <div *ngIf="form.get('description').invalid && form.get('description').touched" class="invalid-feedback">
+    Поле обязательно для заполнения
+  </div>
+
+  </div>
+  <div class="col-md-6">
+    <label for="marginalia" class="form-label">Заметки</label>
+    <input
+      formControlName="marginalia"
+      type="text"
+      class="form-control"
+      id="marginalia">
+  </div>
+  <div class="col-12">
+    <app-rating [selectedValue]="form.get('rating').value" (starEmit)="form.get('rating').setValue($event)"></app-rating>
+  </div>
+  <div *ngIf="showButton" class="col-12">
+    <button  [disabled]="form.invalid" type="submit" class="btn btn-primary">Сохранить</button>
+  </div>
+</form>
+<i class="fa fa-pencil"></i>

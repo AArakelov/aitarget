@@ -1,0 +1,9 @@
+<a [routerLink]="['/book-detail', book.isbn]" class="book-card">
+  <img [src]="'assets/images/' + book?.image +'.jpeg'" class="booking-card__image" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{book.name}}</h5>
+    <p class="card-text">
+    </p>
+  </div>
+</a>
+<app-rating [selectedValue]="book.rating"></app-rating>

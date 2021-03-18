@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/style/_scaffolding.scss";
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  src: url("assets/fonts/Rubik/Rubik-VariableFont_wght.ttf");
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Rubik;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  // height: 100%;
+  position: relative;
+  // overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  // min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
